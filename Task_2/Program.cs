@@ -10,31 +10,22 @@ namespace Task_2
     {
         static void Main(string[] args)
         {
-            CarCollection<Transport> transport = new CarCollection<Transport>();
             CarCollection<Car> cars = new CarCollection<Car>();
             CarCollection<SportsCar> sportsCars = new CarCollection<SportsCar>();
 
 
-            cars.Add(new Car("Lada 565", 1290));
-            cars.Add(new Car("Lada 121", 1590));
-            cars.Add(new Car("Lada 234", 1990));
-            cars.Add(new Car("Lada 543", 1998));
+            cars.Add("Lada 565", 1290);
+            cars.Add("Lada 121", 1590);
+            cars.Add("Lada 234", 1990);
+            cars.Add("Lada 543", 1998);
 
-            sportsCars.Add(new SportsCar("Lamborg 565", 1290));
-            sportsCars.Add(new SportsCar("Lamborg 121", 1590));
-            sportsCars.Add(new SportsCar("Lamborg 234", 1990));
-            sportsCars.Add(new SportsCar("Lamborg 543", 1998));
-
-            transport.Add(new SportsCar("Lamborg 565", 1290));
-            transport.Add(new Car("Lada 565", 1290));
-            transport.Add(new SportsCar("Lamborg 121", 1590));
-            transport.Add(new Car("Lada 121", 1590));
-            transport.Add(new SportsCar("Lamborg 543", 1998));
+            sportsCars.Add("Lamborg 565", 1290);
+            sportsCars.Add("Lamborg 121", 1590);
+            sportsCars.Add("Lamborg 234", 1990);
+            sportsCars.Add("Lamborg 543", 1998);
 
             cars[0].ShowBasInfo();
             sportsCars[0].ShowBasInfo();
-            transport[0].ShowBasInfo();
-
 
             Console.WriteLine("---------------------");
 
@@ -49,15 +40,6 @@ namespace Task_2
             {
                 sportsCars[i].ShowBasInfo();
             }
-
-
-            Console.WriteLine("---------------------");
-
-            for (int i = 0; i < transport.Count; i++)
-            {
-                transport[i].ShowBasInfo();
-            }
-
 
             Console.ReadKey();
         }

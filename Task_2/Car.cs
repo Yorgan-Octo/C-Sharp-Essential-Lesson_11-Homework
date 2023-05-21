@@ -13,8 +13,14 @@ namespace Task_2
     {
         protected string _typeTransport;
 
-        public string Model { get; }
-        public int ReleaseYear { get; }
+        public string Model { get; set; }
+        public int ReleaseYear { get; set; }
+
+
+        public Transport()
+        {
+
+        }
 
         public Transport(string model, int releaseYear)
         {
@@ -28,7 +34,10 @@ namespace Task_2
 
     public class Car : Transport
     {
+        public Car()
+        {
 
+        }
         public Car(string model, int releaseYear) : base(model, releaseYear)
         {
             _typeTransport = "Легковой Автомобыль";
@@ -43,7 +52,10 @@ namespace Task_2
 
     public class SportsCar : Transport
     {
+        public SportsCar()
+        {
 
+        }
         public SportsCar(string model, int releaseYear) : base(model, releaseYear)
         {
             _typeTransport = "Спортивний Автомобыль";

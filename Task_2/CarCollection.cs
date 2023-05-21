@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    public class CarCollection<T> where T : Transport
+    public class CarCollection<T> where T : Transport, new()
     {
 
         private T[] parking = new T[0];
@@ -23,11 +23,18 @@ namespace Task_2
 
                 return parking[index];
             }
+
+            set => parking[index] = value;
         }
-        public void Add(T item)
+        public void Add(string model, int releaseYear)
         {
-            Array.Resize(ref parking, parking.Length + 1);
-            parking[parking.Length - 1] = item;
+            int newIndexLrngth = parking.Length + 1;
+
+            Array.Resize(ref parking, newIndexLrngth);
+            parking[newIndexLrngth - 1] = new T();
+
+            parking[newIndexLrngth - 1].Model = model;
+            parking[newIndexLrngth - 1].ReleaseYear = releaseYear;
         }
     }
 }

@@ -16,7 +16,16 @@ namespace Task_4
 
         public object this[int index]
         {
-            get { return listObject[index]; }
+            get
+            {
+                if (index >= 0 && index < listObject.Length)
+                {
+                    return listObject[index];
+
+                }
+
+                throw new ArgumentException("Вихід за межі");
+            }
         }
 
         public void Add(object obj)
