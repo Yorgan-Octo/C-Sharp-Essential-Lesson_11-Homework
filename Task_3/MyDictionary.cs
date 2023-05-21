@@ -37,15 +37,39 @@ namespace Task_3
                 throw new ArgumentException("Такого ключа в словнику немае");
             }
         }
+        public R this[int index]
+        {
+            get
+            {
+                return valuesDictionary[index];
+            }
+        }
 
         public void Add(T key, R values)
         {
-            Array.Resize(ref keyDictionary, keyDictionary.Length + 1);
+            if (!ContainsKey(key))
+                Array.Resize(ref keyDictionary, keyDictionary.Length + 1);
+            else
+                throw new ArgumentException("Такой ключ уже существует");
+
+
             Array.Resize(ref valuesDictionary, valuesDictionary.Length + 1);
 
             keyDictionary[keyDictionary.Length - 1] = key;
             valuesDictionary[valuesDictionary.Length - 1] = values;
         }
 
+        public bool ContainsKey(T key)
+        {
+            foreach (var item in keyDictionary)
+            {
+                if (item.Equals(key))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
